@@ -1,0 +1,10 @@
+name: ntdLuckyBlock
+version: '${project.version}'
+main: the.ntdluckyblock.Main
+author: poofoo2
+commands:
+  lucky:
+    permission: lucky.admin
+permissions:
+  lucky.admin:
+    default: op

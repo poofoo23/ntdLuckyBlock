@@ -1,0 +1,52 @@
+drops:
+  - weight: 20
+    actions:
+      - type: EXP
+        amount: 20
+
+  - weight: 2
+    actions:
+      - type: ITEM
+        material: DIAMOND
+        amount: 3
+
+  - weight: 17
+    actions:
+      - type: POTION
+        potion: SPEED
+        duration: 200
+        amplifier: 1
+
+  - weight: 18
+    actions:
+      - type: POTION
+        potion: STRENGTH
+        duration: 300
+        amplifier: 5
+
+  - weight: 9
+    actions:
+      - type: POTION
+        potion: FIRE_RESISTANCE
+        duration: 300
+        amplifier: 12
+
+  - weight: 15
+    actions:
+      - type: TELEPORT
+        offset:
+          x: 0.5
+          y: 30.0
+          z: 0.5
+          yaw: 90.0
+          pitch: 90.0
+      - type: COMMAND
+        sender: CONSOLE
+        command: "give %player% water_bucket"
+      - type: MESSAGE
+        message: "&a你触发了陷阱!"
+
+  - weight: 30
+    actions:
+      - type: MESSAGE
+        message: "&a什么事情也没有..."

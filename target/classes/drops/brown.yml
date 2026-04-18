@@ -1,0 +1,39 @@
+drops:
+  - weight: 6
+    actions:
+      - type: LUCKY_BLOCK
+        lucky-type: gray
+        amount: 1
+      - type: LUCKY_BLOCK
+        lucky-type: blue
+        amount: 1
+
+  - weight: 6
+    actions:
+      - type: LUCKY_BLOCK
+        lucky-type: blue
+        amount: 1
+
+  - weight: 6
+    actions:
+      - type: LUCKY_BLOCK
+        lucky-type: yellow
+        amount: 1
+
+  - weight: 2
+    actions:
+      - type: LUCKY_BLOCK
+        lucky-type: black
+        amount: 1
+
+  - weight: 4
+    actions:
+      - type: LUCKY_BLOCK
+        lucky-type: gray
+        amount: 1
+
+  - weight: 5
+    actions:
+      - type: LUCKY_BLOCK
+        lucky-type: white
+        amount: 1
