@@ -37,10 +37,7 @@ public class LuckyBlockStand {
     private static final Map<String, StandData> standMap = new HashMap<>();
 
     private static String getKey(Location loc) {
-        return loc.getWorld().getName() + ":"
-                + loc.getBlockX() + ":"
-                + loc.getBlockY() + ":"
-                + loc.getBlockZ();
+        return loc.getWorld().getName() + ":" + loc.getBlockX() + ":" + loc.getBlockY() + ":" + loc.getBlockZ();
     }
 
     private static byte getGlassData(String type) {
@@ -48,9 +45,7 @@ public class LuckyBlockStand {
         String colorName = plugin.getLuckyBlockConfig().getString(path);
 
         if (colorName == null) {
-            throw new IllegalStateException(
-                    "[LuckyBlock] 缺少配置项: " + path
-            );
+            throw new IllegalStateException("[LuckyBlock] 缺少配置项: " + path);
         }
 
         switch (colorName.toUpperCase()) {
@@ -87,9 +82,7 @@ public class LuckyBlockStand {
             case "WHITE_STAINED_GLASS":
                 return 0;
             default:
-                throw new IllegalStateException(
-                        "[LuckyBlock] 未知玻璃颜色: " + colorName + " (" + path + ")"
-                );
+                throw new IllegalStateException("[LuckyBlock] 未知玻璃颜色: " + colorName + " (" + path + ")");
         }
     }
 
@@ -103,10 +96,7 @@ public class LuckyBlockStand {
         EntityArmorStand stand = createStand(loc);
         sendSpawnPacket(loc, stand, skull);
 
-        standMap.put(
-                getKey(loc),
-                new StandData(loc.clone(), skull.clone(), glassData, stand.getId())
-        );
+        standMap.put(getKey(loc), new StandData(loc.clone(), skull.clone(), glassData, stand.getId()));
     }
     public static Iterable<Location> getAllLocations() {
         List<Location> list = new ArrayList<>();
@@ -122,12 +112,7 @@ public class LuckyBlockStand {
 
     private static Location parseKey(String key) {
         String[] parts = key.split(":");
-        return new Location(
-                plugin.getServer().getWorld(parts[0]),
-                Integer.parseInt(parts[1]),
-                Integer.parseInt(parts[2]),
-                Integer.parseInt(parts[3])
-        );
+        return new Location(plugin.getServer().getWorld(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]), Integer.parseInt(parts[3]));
     }
 
     public static void removeStand(Location loc) {
@@ -182,10 +167,7 @@ public class LuckyBlockStand {
         PacketPlayOutSpawnEntityLiving spawn =
                 new PacketPlayOutSpawnEntityLiving(stand);
 
-        PacketPlayOutEntityEquipment equip =
-                new PacketPlayOutEntityEquipment(
-                        stand.getId(), 4, CraftItemStack.asNMSCopy(skull)
-                );
+        PacketPlayOutEntityEquipment equip = new PacketPlayOutEntityEquipment(stand.getId(), 4, CraftItemStack.asNMSCopy(skull));
 
         for (Player p : loc.getWorld().getPlayers()) {
             ((CraftPlayer) p).getHandle().playerConnection.sendPacket(spawn);
@@ -194,13 +176,9 @@ public class LuckyBlockStand {
     }
 
     private static void sendSpawnPacket(Player p, EntityArmorStand stand, ItemStack skull) {
-        PacketPlayOutSpawnEntityLiving spawn =
-                new PacketPlayOutSpawnEntityLiving(stand);
+        PacketPlayOutSpawnEntityLiving spawn = new PacketPlayOutSpawnEntityLiving(stand);
 
-        PacketPlayOutEntityEquipment equip =
-                new PacketPlayOutEntityEquipment(
-                        stand.getId(), 4, CraftItemStack.asNMSCopy(skull)
-                );
+        PacketPlayOutEntityEquipment equip = new PacketPlayOutEntityEquipment(stand.getId(), 4, CraftItemStack.asNMSCopy(skull));
 
         ((CraftPlayer) p).getHandle().playerConnection.sendPacket(spawn);
         ((CraftPlayer) p).getHandle().playerConnection.sendPacket(equip);
