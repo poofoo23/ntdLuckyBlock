@@ -165,15 +165,9 @@ public class LuckyBlockStand {
     }
 
     private static EntityArmorStand createStand(Location loc) {
-        EntityArmorStand stand =
-                new EntityArmorStand(((CraftWorld) loc.getWorld()).getHandle());
+        EntityArmorStand stand = new EntityArmorStand(((CraftWorld) loc.getWorld()).getHandle());
 
-        stand.setLocation(
-                loc.getBlockX() + 0.5,
-                loc.getBlockY() - 1.25,
-                loc.getBlockZ() + 0.5,
-                0, 0
-        );
+        stand.setLocation(loc.getBlockX() + 0.5, loc.getBlockY() - 1.25, loc.getBlockZ() + 0.5, 0, 0);
 
         stand.setInvisible(true);
         stand.setSmall(false);
