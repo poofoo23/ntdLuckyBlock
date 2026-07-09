@@ -16,7 +16,6 @@ import the.ntdluckyblock.Main;
 
 import java.util.*;
 
-
 public class LuckyBlockStand {
 
     private static final Main plugin = Main.getInstance();
